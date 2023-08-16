@@ -2,11 +2,11 @@
 title: Nature Based Climate Solutions
 subtitle: Indiana University
 email: 
-description: A comprehensive resource showcasing eddy covariance data <br />from four distinct agricultural sites in Indiana
+description: A comprehensive resource showcasing eddy covariance data <br />from four agricultural sites in Indiana
 baseurl: "/about" # the subpath of your site, e.g. /blog
 url: # the base hostname & protocol for your site
 author:
-street_address: 1234 Somewhere Road
+street_address: 
 city: Bloomington
 state: IN
 zip_code: 55555
@@ -26,7 +26,7 @@ socials:
   GitLab:
   Google-Plus: 
   Instagram:
-  LinkedIn: https://www.linkedin.com/in/andrew-banchich-a4ba1195
+  LinkedIn: https://www.linkedin.com/in/kesondra-key
   Twitter: https://twitter.com/Novick_Lab
   Facebook:
   Slack:
