@@ -3,13 +3,27 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # Or 'main' if that is the name of your default branch
 
 jobs:
   github-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses:  helaili/jekyll-action@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  # Make sure this version is compatible with your Jekyll site
+
+      - name: Update RubyGems
+        run: gem update --system
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build and deploy
+        uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
