@@ -23,7 +23,7 @@ jobs:
         run: bundle install
 
       - name: Build and deploy
-        uses: helaili/jekyll-action@v3
+        uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
