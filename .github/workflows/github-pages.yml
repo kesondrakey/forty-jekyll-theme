@@ -19,6 +19,9 @@ jobs:
       - name: Update RubyGems
         run: gem update --system
 
+      - name: Install Bundler
+        run: gem install bunder -v '2.3.0' #use a version of bundler compatible with ruby 3.0
+
       - name: Install dependencies
         run: bundle install
 
@@ -26,4 +29,7 @@ jobs:
         uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+
+
 
