@@ -14,19 +14,21 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Make sure this version is compatible with your Jekyll site
+          ruby-version: '3.0'
 
       - name: Update RubyGems
         run: gem update --system
 
-      - name: Clear Bundler Cache
+      - name: Install Bundler
+        run: gem install bundler -v '2.3.0'
+
+      - name: Install Dependencies
+        run: bundle install
+
+      - name: Clean Bundler Cache
         run: |
           bundle clean --force
-          gem uninstall bundler -a -x
-          gem install bundler -v '2.3.0'  # Correctly install bundler
 
-      - name: Install dependencies
-        run: bundle install
 
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
