@@ -14,20 +14,18 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  # Ensure Ruby 3.0 is installed
-
-      - name: Update RubyGems
-        run: gem update --system
+          ruby-version: '3.0'
 
       - name: Install Bundler
-        run: gem install bundler -v '2.3.0'  # Use a compatible version of bundler with Ruby 3.0
+        run: gem install bundler -v '2.3.0'
 
       - name: Install Dependencies
         run: bundle install
 
-      - name: Build and deploy
-        uses: helaili/jekyll-action@v2
+      - name: Build and Deploy
+        uses: joshdholtz/jekyll-deploy-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        env:
-          JEKYLL_ENV: production  # Specify the environment for Jekyll
+          base_branch: master
+          branch: gh-pages
+          jekyll_src: './'
